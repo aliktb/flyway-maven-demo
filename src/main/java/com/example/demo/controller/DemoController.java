@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,5 +34,11 @@ public class DemoController{
 
     return ResponseEntity.ok(String.format("User %s %s created with ID %d",
       newUser.getFirstName(), newUser.getSurname(), Id));
+  }
+
+  @GetMapping("/users")
+  public ResponseEntity<List<User>> getAllUsers(){
+
+    return ResponseEntity.ok(demoService.getAllUsers());
   }
 }

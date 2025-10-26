@@ -6,14 +6,21 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Builder
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "users")
 public class User {
+
+  public User(String firstName, String surname) {
+      this.firstName = firstName;
+      this.surname = surname;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
